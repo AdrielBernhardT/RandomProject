@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- FAVICON -->
-    <link rel="shortcut icon" href="./Asset/PNG/LogoPalorant.png">
     <!-- REMIXICONS -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
     <title>BUAT CINDY!</title>
@@ -51,6 +49,29 @@
             color: var(--title-color);
             border: none;
             cursor: pointer;
+        }
+        @media (max-width: 720px) {
+            .main_container {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .left__content, .right__content {
+                width: 100%;
+                border: none;
+            }
+
+            .left__content img {
+                height: auto;
+            }
+
+            .container__row {
+                flex-direction: column;
+            }
+
+            .container__row img {
+                max-width: 80%;
+            }
         }
     </style>
 </head>
