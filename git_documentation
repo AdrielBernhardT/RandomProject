@@ -1,0 +1,20 @@
+1. git pull
+Ambil dulu codingan dan instruksi terbaru.
+
+2. npm install
+Siapkan "alat-alat" (library) baru yang mungkin dibutuhkan codingan tersebut.
+
+3. prisma migrate reset
+Sesuaikan bentuk database lokalmu dengan desain terbaru tim.
+
+4. npm run dev
+Nyalakan mesinnya setelah semua siap.
+
+5. git add .
+Tanda titik (.) -> "Pilih SEMUA file yang barusan saya ubah/buat".
+
+6. git comit -m "<Message>"
+Membuat "Checkpoint"
+
+7. git push -u origin main
+push -> upload ke git, -u (upstream) biasanya cuma perlu dipakai sekali saja saat pertama kali nge-push branch baru.
