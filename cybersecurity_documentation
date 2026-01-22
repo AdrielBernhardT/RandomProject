@@ -1,0 +1,53 @@
+[A] HTTP Fundamental
+[A.1] Example Text Block Browser to Server
+
+POST /login.php HTTP/1.1
+Host: www.target-bank.com
+User-Agent: Mozilla/5.0 ...
+Cookie: session_id=abc123xyz
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 27
+
+username=adriel&password=123
+
+[A.2] HTTP Method (Kata Kerja) -> POST /login.php HTTP/1.1
+GET: Mengambil data. Parameter ada di URL (?id=1).
+POST: Mengirim data (ubah password, upload file, login). Data ada di Body.
+PUT: Mengupdate data yang sudah ada.
+DELETE: Menghapus data.
+
+[A.3] HTTP Headers (Metadata)
+Host: Server mana yang dituju.
+User-Agent: Identitas browser/OS.
+Referer: Dari halaman mana kamu berasal.
+Cookie: Kartu identitasmu (Session ID).
+
+[A.4] Request Body (Payload)
+username=adriel&password=123 -> Di sinilah data input user berada.
+
+[B] Anatomi HTTP Response (Apa yang Server Balas)
+[B.1] Example Text Block Server to Browser
+HTTP/1.1 200 OK
+Server: Apache/2.4.41 (Ubuntu)
+Set-Cookie: session_id=NewSessionID; Secure; HttpOnly
+Content-Type: text/html
+
+<html>...Selamat Datang Adriel...</html>
+
+[B.2] Status Code -> HTTP/1.1 200 OK
+2xx (Success): 200 OK. Request berhasil.
+3xx (Redirection): 301 atau 302. "Pindah ke alamat lain".
+4xx (Client Error):
+    403 Forbidden: Kamu tidak punya akses. (Tantanganmu: Bypass ini!).
+    404 Not Found: Halaman tidak ada.
+5xx (Server Error):
+    500 Internal Server Error: Server crash atau bingung.
+[!] Bug Hunter Tip: 500 adalah EMAS. Artinya berhasil merusak logika server. Seringkali error ini menampilkan "Stack Trace" yang membocorkan versi database, struktur file, atau info sensitif lainnya.
+
+[C] Tools
+[C.1] ProxyChains (The Ghost Mode)
+Penjelasan: 
+Memaksa tools lain (seperti Nmap atau Hydra) untuk melewatkan trafiknya
+melalui serangkaian proxy di seluruh dunia sebelum sampai ke target.
+Cara Panggil: proxychains <command>
+Contoh: proxychains nmap -sS target.com
